@@ -58,16 +58,16 @@ class Command(BaseCommand):
             username = userdata[0]
             user_email = userdata[1]
 
-            try:
-                user = User.objects.get(username=username, email=user_email)
-            except Exception as ex:
-                error_message = (
-                    'Could not find a user with specified username and email '
-                    'address. Make sure you have everything correct before '
-                    'trying again'
-                )
-                logger.error(error_message)
-                raise CommandError(error_message+f': {username} {user_email} {ex}')  # lint-amnesty, pylint: disable=raise-missing-from
+            #try:
+            user = User.objects.get(username=username, email=user_email)
+            #except Exception as ex:
+            #    error_message = (
+            #        'Could not find a user with specified username and email '
+            #        'address. Make sure you have everything correct before '
+            #        'trying again'
+            #    )
+            #    logger.error(error_message)
+            #    raise CommandError(error_message+f': {username} {user_email} {ex}')  # lint-amnesty, pylint: disable=raise-missing-from
 
             user_model = get_user_model()
 
